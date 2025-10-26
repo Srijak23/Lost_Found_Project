@@ -11,12 +11,12 @@ services:
     depends_on:
       - lostfound-backend
     
-    lostfound-backend:
-      image: mongo:latest
-      container_name: lost-mongodb
-      ports:
-        - "27019:27017"
-      volumes:
+  lostfound-backend:
+    image: mongo:latest
+    container_name: lost-mongodb
+    ports:
+      - "27019:27017"
+    volumes:
         - ./data:/data/db
 
 
