@@ -7,13 +7,13 @@ services:
     ports:
       - "3006:3000"
     environment:
-      - mongo_URI=mongodb://lost-mongodb:27017/lostandfound
+      - mongo_URI=mongodb://mongodb:27017/lostandfound
     depends_on:
       - lostfound-backend
     
   lostfound-backend:
     image: mongo:latest
-    container_name: lost-mongodb
+    container_name: mongodb
     ports:
       - "27019:27017"
     volumes:
