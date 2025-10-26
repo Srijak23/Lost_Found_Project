@@ -1,0 +1,23 @@
+version: '3.9'
+services:
+  lostfound-frontend:
+    build: .
+    image: lost-found-image:v1
+    container_name: lost-found-frontend
+    ports:
+      - "3006:3000"
+    environment:
+      - mongo_URI=mongodb://lost-mongodb:27017/lostandfound
+    depends_on:
+      - lostfound-backend
+    
+    lostfound-backend:
+      image: mongo:latest
+      container_name: lost-mongodb
+      ports:
+        - "27019:27017"
+      volumes:
+        - ./data:/data/db
+
+
+    
